@@ -1,12 +1,12 @@
 <template>
-  <div class="view">
+  <div class="core-view">
     <router-view></router-view>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'View',
+  name: 'CoreView',
 };
 </script>
 

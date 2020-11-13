@@ -87,11 +87,30 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+h1 {
+  font-size: 4rem;
+  color: #fff;
+  font-weight: normal;
+
+  span.cursor.typing {
+    animation: none;
+  }
+}
 .main {
   height: 100vh;
+  width: 100%;
 }
+
 .main-item {
   position: relative;
+
   display: flex;
   align-items: center;
   margin: 10px;

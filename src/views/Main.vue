@@ -1,12 +1,19 @@
 <template>
-  <div class="container">
-    <h1>
-      나는
-      <span class="typed-text">{{ typeValue }}</span>
-      다다다
-      <span class="cursor" :class="{ typing: typeStatus }">&nbsp;</span>
-    </h1>
-  </div>
+  <v-container>
+    <v-row class="container">
+      <router-link to="/about">
+        <h1>
+          <span
+            style="font-family: 'Xanh Mono', monospace;"
+            class="typed-text"
+            >{{ typeValue }}</span
+          >
+          <span class="cursor" :class="{ typing: typeStatus }">&nbsp;</span>
+        </h1>
+      </router-link>
+    </v-row>
+    <Second />
+  </v-container>
 </template>
 
 <script>
@@ -16,13 +23,16 @@ export default {
     return {
       typeValue: '',
       typeStatus: false,
-      typeArray: ['집에가고싶다', '배고프다', '졸리다', '으아아아악'],
+      typeArray: ["This is jaeyoung's PORTFOLIO 🤩"],
       typingSpeed: 200,
       erasingSpeed: 100,
       newTextDelay: 2000,
       typeArrayIndex: 0,
       charIndex: 0,
     };
+  },
+  components: {
+    Second: () => import('@/components/main/Second.vue'),
   },
   methods: {
     typeText() {
@@ -38,24 +48,23 @@ export default {
         setTimeout(this.eraseText, this.newTextDelay);
       }
     },
-    eraseText() {
-      if (this.charIndex > 0) {
-        if (!this.typeStatus) this.typeStatus = true;
-        this.typeValue = this.typeArray[this.typeArrayIndex].substring(
-          0,
-          this.charIndex - 1
-        );
-        this.charIndex -= 1;
-        setTimeout(this.eraseText, this.erasingSpeed);
-      } else {
-        this.typeStatus = false;
-        this.typeArrayIndex += 1;
-        if (this.typeArrayIndex >= this.typeArray.length) {
-          this.typeArrayIndex = 0;
-          setTimeout(this.typeText, this.typingSpeed + 1000);
-        }
-      }
-    },
+    // eraseText() {
+    //   if (this.charIndex > 0) {
+    //     if (!this.typeStatus) this.typeStatus = true;
+    //     this.typeValue = this.typeArray[this.typeArrayIndex].substring(
+    //       0,
+    //       this.charIndex - 1
+    //     );
+    //     this.charIndex -= 1;
+    //     setTimeout(this.eraseText, this.erasingSpeed);
+    //   } else {
+    //     this.typeStatus = false;
+    //     this.typeArrayIndex += 1;
+    //     if (this.typeArrayIndex >= this.typeArray.length)
+    //       this.typeArrayIndex = 0;
+    //     setTimeout(this.typeText, this.typingSpeed + 1000);
+    //   }
+    // },
   },
   created() {
     setTimeout(this.typeText, this.newTextDelay + 200);
@@ -64,12 +73,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import url('https://fonts.googleapis.com/css2?family=Xanh+Mono&display=swap');
 .container {
   width: 100%;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  a {
+    text-decoration: none;
+  }
 }
 h1 {
   font-size: 4rem;
@@ -82,7 +95,7 @@ h1 {
   }
   span.cursor {
     display: inline-block;
-    margin: 10px;
+    margin: 0 10px;
     width: 2px;
     border: 0;
     height: 4rem;

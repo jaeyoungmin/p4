@@ -1,11 +1,8 @@
 <template>
-  <v-app-bar dark color="#050801">
+  <v-app-bar dark color="#050801" fixed flat>
     <v-btn icon>
       <v-icon>mdi-home-outline</v-icon>
     </v-btn>
-    <v-spacer></v-spacer>
-    <h2>HOME</h2>
-    <v-spacer></v-spacer>
   </v-app-bar>
 </template>
 

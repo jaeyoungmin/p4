@@ -16,6 +16,19 @@ export default {
     CoreView: () => import('@/components/core/CoreView.vue'),
     CoreFooter: () => import('@/components/core/CoreFooter.vue'),
   },
+  data() {
+    return {
+      scrollPosition: null,
+    };
+  },
+  mounted() {
+    window.addEventListener('scroll', this.updateScroll);
+  },
+  methods: {
+    updateScroll() {
+      this.scrollPosition = window.scrollY;
+    },
+  },
 };
 </script>
 <style lang="scss">
@@ -24,9 +37,5 @@ export default {
   padding: 0;
   font-family: consolas;
   box-sizing: border-box;
-}
-.home {
-  min-height: 100vh;
-  background-color: #050801;
 }
 </style>

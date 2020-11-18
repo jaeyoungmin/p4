@@ -1,13 +1,22 @@
 <template>
   <div class="main-banner">
-    <v-img :src="bgImg" min-height="485px">
-      <div class="main-banner" no-gutters>
-        <h1>
-          <span class="typed-text">{{ typeValue }}</span>
-          <span class="cursor" :class="{ typing: typeStatus }">&nbsp;</span>
-        </h1>
+    <div class="banner-container">
+      <div style="position:relative; width: 100vw">
+        <v-img
+          src="@/assets/ddd.png"
+          class="banner-img"
+          cover
+          min-height="100vh"
+        >
+          <div class="text-warpper" no-gutters>
+            <h1>
+              <span class="typed-text">{{ typeValue }}</span>
+              <span class="cursor" :class="{ typing: typeStatus }">&nbsp;</span>
+            </h1>
+          </div>
+        </v-img>
       </div>
-    </v-img>
+    </div>
   </div>
 </template>
 
@@ -18,7 +27,7 @@ export default {
     return {
       typeValue: '',
       typeStatus: false,
-      typeArray: ["Jaeyoung's PORTFOLIO 🤩"],
+      typeArray: ["Jaeyoung's Portfolio"],
       typingSpeed: 100,
       erasingSpeed: 100,
       newTextDelay: 2000,
@@ -74,12 +83,27 @@ export default {
   width: 100%;
   height: 100vh;
   background: #00000002;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
   a {
     text-decoration: none;
   }
+  z-index: 1;
+}
+.banner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+}
+.text-warpper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.banner-img {
+  max-width: 100%;
 }
 h1 {
   font-size: 6rem;

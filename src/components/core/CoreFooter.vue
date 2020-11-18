@@ -1,9 +1,16 @@
 <template>
-  <div></div>
+  <div class="core-footer"></div>
 </template>
 
 <script>
-export default {};
+export default {
+  name: 'CoreFooter',
+};
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.core-footer {
+  background: #050801;
+  height: 100vh;
+}
+</style>

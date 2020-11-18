@@ -2,6 +2,7 @@
   <div class="main">
     <MainBanner />
     <AboutMe ref="aboutEl" />
+    <Features ref="featuresEl" />
     <Parallax />
   </div>
 </template>
@@ -12,11 +13,14 @@ export default {
   mounted() {
     document.addEventListener('scroll', () => {
       this.$refs.aboutEl.showText(window.scrollY);
+      this.$refs.aboutEl.positionFix(window.scrollY);
+      this.$refs.featuresEl.showCard(window.scrollY);
     });
   },
   components: {
     MainBanner: () => import('@/components/main/MainBanner.vue'),
     AboutMe: () => import('@/components/main/AboutMe.vue'),
+    Features: () => import('@/components/main/Features.vue'),
     Parallax: () => import('@/components/main/Parallax.vue'),
   },
 };

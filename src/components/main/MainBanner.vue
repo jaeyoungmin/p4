@@ -1,21 +1,21 @@
 <template>
   <div class="main-banner">
     <div class="banner-container">
-      <div style="position:relative; width: 100vw">
-        <v-img
+      <!-- <div style="position:relative; width: 100vw"> -->
+      <!-- <v-img
           src="@/assets/ddd.png"
           class="banner-img"
           cover
           min-height="100vh"
-        >
-          <div class="text-warpper" no-gutters>
-            <h1>
-              <span class="typed-text">{{ typeValue }}</span>
-              <span class="cursor" :class="{ typing: typeStatus }">&nbsp;</span>
-            </h1>
-          </div>
-        </v-img>
-      </div>
+        > -->
+      <v-row class="text-warpper pa-5" no-gutters>
+        <h1>
+          <span class="typed-text">{{ typeValue }}</span>
+          <span class="cursor" :class="{ typing: typeStatus }">&nbsp;</span>
+        </h1>
+      </v-row>
+      <!-- </v-img> -->
+      <!-- </div> -->
     </div>
   </div>
 </template>
@@ -27,10 +27,10 @@ export default {
     return {
       typeValue: '',
       typeStatus: false,
-      typeArray: ["Jaeyoung's Portfolio"],
-      typingSpeed: 100,
-      erasingSpeed: 100,
-      newTextDelay: 2000,
+      typeArray: ["This is Jaeyoung's Portfolio🤩"],
+      typingSpeed: 80,
+      erasingSpeed: 80,
+      newTextDelay: 1000,
       typeArrayIndex: 0,
       charIndex: 0,
       bgImg:
@@ -82,7 +82,7 @@ export default {
 .main-banner {
   width: 100%;
   height: 100vh;
-  background: #00000002;
+  background: #050801;
 
   a {
     text-decoration: none;
@@ -93,7 +93,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
+  // position: fixed;
 }
 .text-warpper {
   width: 100%;
@@ -106,20 +106,20 @@ export default {
   max-width: 100%;
 }
 h1 {
-  font-size: 6rem;
+  font-size: 4rem;
   color: #fff;
   font-weight: 300;
 
   span.typed-text {
     color: #fff;
-    font-size: 6rem;
+    font-size: 4rem;
   }
   span.cursor {
     display: inline-block;
     margin: 0 10px;
     width: 2px;
     border: 0;
-    height: 6rem;
+    height: 4rem;
     background-color: #fff;
     animation: cursorBlink 1s infinite;
   }

@@ -29,6 +29,32 @@ export default new Vuex.Store({
           'Vestibulum in dictum velit, in rhoncus nibh. Maecenas neque libero, interdum a dignissim in, aliquet vitae lectus. Phasellus lorem enim, luctus ut velit eget.',
       },
     ],
+    skills: [
+      {
+        title: 'HTML',
+        value: 80,
+      },
+      {
+        title: 'CSS',
+        value: 75,
+      },
+      {
+        title: 'JAVASCRIPT',
+        value: 68,
+      },
+      {
+        title: 'VUE',
+        value: 65,
+      },
+      {
+        title: 'PHOTOSHOP',
+        value: 65,
+      },
+      {
+        title: 'ILLUSTRATOR',
+        value: 40,
+      },
+    ],
   },
   mutations: {},
   actions: {},

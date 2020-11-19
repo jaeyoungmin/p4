@@ -1,33 +1,36 @@
 <template>
-  <div
-    class="about-me pa-0 pa-0 mt-3"
-    style="z-index:1;background-color:#fff; position:relative;"
+  <v-container
+    class="about-me d-flex justify-center align-center pa-3 "
     ref="show"
   >
-    <div
-      class="about-banner"
-      :style="{
-        position: isFix ? 'fixed' : undefined,
-        left: 'calc(' + 50 + '%' + ' - ' + 250 + 'px)',
-        top: 65 + 'px',
-      }"
-    >
-      <v-row class="about-me-item justify-center flex-column" no-gutters>
-        <div class="item-title d-flex justify-center">
-          <h1 style="font-size:3rem; color:#272727;">
-            ABOUT ME
-          </h1>
-        </div>
+    <v-row justify="center" no-gutters>
+      <v-col cols="12" lg="6" md="5">
+        <h1 style="font-size:3rem; color:#272727;">
+          ABOUT ME <span v-show="isShow">🙇‍♂</span>
+        </h1>
+        <div class="divider mb-4"></div>
         <div class="about-me-text d-flex align-center justify-center">
           <transition name="slide-fade">
-            <v-card v-show="scrolled" width="500" min-height="500">
-              <p ref="portfolio">{{ introduceText }}</p>
-            </v-card>
+            <p class="pa-2" v-show="scrolled">{{ introduceText }}</p>
           </transition>
         </div>
-      </v-row>
-    </div>
-  </div>
+      </v-col>
+      <v-col class="mt-4" cols="12" lg="6" md="7">
+        <v-scale-transition>
+          <v-hover v-slot="{ hover }">
+            <v-card :class="{ 'on-hover': hover }" class="ml-2" elevation="0">
+              <img
+                v-show="isShow"
+                :src="iuimg"
+                alt="#"
+                style="min-width:100px;width:100%;"
+              />
+            </v-card>
+          </v-hover>
+        </v-scale-transition>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
@@ -39,28 +42,34 @@ export default {
         this.scrolled = true;
       }
     },
-    positionFix(scrollTop) {
-      console.log(this.Fix);
-      if (this.$refs.show.offsetTop < scrollTop) {
-        this.isFix = true;
-      } else {
-        this.isFix = undefined;
+    showImg(scrollTop) {
+      if (this.$refs.show.offsetTop < scrollTop + 200) {
+        this.isShow = true;
       }
-
-      // console.log(
-      //   this.$refs.show.offsetTop + this.$refs.show.clientHeight + 250
-      // );
-      // console.log(scrollTop + window.innerHeight);
-      // console.log(this.isFix);
-      // if (
-      //   this.$refs.show.offsetTop + this.$refs.show.clientHeight <
-      //   scrollTop + window.innerHeight + 45
-      // ) {
-      //   this.isFix = true;
-      // } else {
-      //   this.isFix = undefined;
-      // }
     },
+
+    // positionFix(scrollTop) {
+    //   console.log(this.Fix);
+    //   if (this.$refs.show.offsetTop < scrollTop + 100) {
+    //     this.isFix = true;
+    //   } else {
+    //     this.isFix = undefined;
+    //   }
+
+    // console.log(
+    //   this.$refs.show.offsetTop + this.$refs.show.clientHeight + 250
+    // );
+    // console.log(scrollTop + window.innerHeight);
+    // console.log(this.isFix);
+    // if (
+    //   this.$refs.show.offsetTop + this.$refs.show.clientHeight <
+    //   scrollTop + window.innerHeight + 45
+    // ) {
+    //   this.isFix = true;
+    // } else {
+    //   this.isFix = undefined;
+    // }
+    // }
     // scrollCallbackElAppear(scrollTop) {
     //   if (this.$refs.portfolio.offsetTop < scrollTop && !this.isElAppear) {
     //     this.isElAppear = true;
@@ -76,9 +85,13 @@ export default {
   data() {
     return {
       introduceText:
-        '집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다 에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다집에가고싶다',
+        'Vuetify is the #1 component library for Vue.js and has been in active development since 2016. The goal of the project is to provide users with everything that is needed to build rich and engaging web applications using the Material Design specification. It accomplishes that with a consistent update cycle, Long-term Support (LTS) for previous versions, responsive community engagement, a vast ecosystem of resources and a dedication to quality components.',
       scrolled: false,
-      isFix: false,
+      scrolled1: false,
+      isShow: false,
+      isShow1: false,
+      iuimg:
+        'https://6.vikiplatform.com/image/a11230e2d98d4a73825a4c10c8c6feb0.jpg?x=b&a=0x0&s=590x330&q=h&e=t&f=t&cb=1',
     };
   },
 };
@@ -87,19 +100,25 @@ export default {
 <style lang="scss" scoped>
 .about-me {
   z-index: 2;
-  min-height: 100vh;
   position: relative;
   width: 100%;
+  min-height: 800px;
+}
+.v-card {
+  transition: opacity 0.4s ease-in-out;
+}
+.v-card:not(.on-hover) {
+  opacity: 0.6;
 }
 .slide-fade-enter-active {
-  transition: all 0.5s ease;
+  transition: all 0.3s ease;
 }
 .slide-fade-leave-active {
   transition: all 0.5s cubic-bezier(1, 0.5, 0.8, 1);
 }
 .slide-fade-enter, .slide-fade-leave-to
 /* .slide-fade-leave-active below version 2.1.8 */ {
-  transform: translateY(400px);
+  transform: translateX(-800px);
   opacity: 0;
 }
 </style>

@@ -25,4 +25,9 @@ a {
   margin-left: 20px;
   text-decoration: none;
 }
+@media only screen and(max-width: 768px) {
+  a {
+    font-size: 0.8rem;
+  }
+}
 </style>

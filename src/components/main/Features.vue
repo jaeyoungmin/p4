@@ -1,29 +1,34 @@
 <template>
-  <div class="features d-flex flex-column" ref="portfolio">
-    <div class="features-title">
-      <h1 style="text-align:center;font-size:3rem;">FEATURE</h1>
-    </div>
-    <div class="container" style="max-width:1200px;">
-      <v-row>
-        <v-col
-          v-for="(feature, i) in features"
-          :key="i"
-          cols="12"
-          md="4"
-          xs="12"
+  <v-container
+    fluid
+    class="features d-flex align-center flex-column pa-3"
+    ref="portfolio"
+  >
+    <div class="feature-banner" style="max-width:1200px;margin:0 auto;">
+      <div class="features-title">
+        <v-col>
+          <h1 style="font-size:3rem; color:#272727">
+            FEATURE <span v-show="isShow"> 🙋‍♂</span>
+          </h1></v-col
         >
-          <transition name="slide-fade">
-            <MyFeature
-              :title="feature.title"
-              :img="feature.imgUrl"
-              :text="feature.text"
-              v-show="i < timing"
-            />
-          </transition>
-        </v-col>
-      </v-row>
+      </div>
+      <div class="divider mx-3"></div>
+      <div class="container">
+        <v-row>
+          <v-col v-for="(feature, i) in features" :key="i" cols="12" lg="4">
+            <transition name="slide-fade">
+              <MyFeature
+                :title="feature.title"
+                :img="feature.imgUrl"
+                :text="feature.text"
+                v-show="i < timing"
+              />
+            </transition>
+          </v-col>
+        </v-row>
+      </div>
     </div>
-  </div>
+  </v-container>
 </template>
 
 <script>
@@ -34,6 +39,7 @@ export default {
     return {
       isAppear: false,
       timing: 0,
+      isShow: false,
     };
   },
   components: { MyFeature: () => import('@/components/main/MyFeature.vue') },
@@ -52,16 +58,26 @@ export default {
         }, 200);
       }
     },
+    showImg(scrollTop) {
+      if (this.$refs.portfolio.offsetTop < scrollTop + 200) {
+        this.isShow = true;
+      }
+    },
+    // showFix(scrollTop) {
+    //   if (this.$refs.portfolio.offsetTop < scrollTop + 80) {
+    //     this.isFix = true;
+    //   } else {
+    //     this.isFix = undefined;
+    //   }
+    // },
   },
 };
 </script>
 
 <style lang="scss" scoped>
 .features {
-  position: relative;
-  z-index: 3;
-  height: 100vh;
-  background-color: white;
+  background: #f5deb3;
+  min-height: 800px;
 }
 .slide-fade-enter-active {
   transition: all 0.3s ease;
@@ -71,7 +87,7 @@ export default {
 }
 .slide-fade-enter, .slide-fade-leave-to
 /* .slide-fade-leave-active below version 2.1.8 */ {
-  transform: translateX(140px);
+  transform: translateY(340px);
   opacity: 0;
 }
 </style>

@@ -1,18 +1,17 @@
 <template>
-  <v-parallax
-    src="https://cdn.pixabay.com/photo/2020/11/13/17/01/bench-5739206_960_720.jpg"
-    class="test"
-  ></v-parallax>
+  <div class="parallax mt-10"></div>
 </template>
 
 <script>
 export default {
   name: 'Parallax',
+  data() {
+    return {
+      imgUrl:
+        'https://images.pexels.com/photos/3796558/pexels-photo-3796558.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+    };
+  },
 };
 </script>
 
-<style lang="scss" scoped>
-.test {
-  height: 100vh;
-}
-</style>
+<style lang="scss" scoped></style>

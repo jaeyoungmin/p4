@@ -1,6 +1,6 @@
 <template>
   <v-container
-    class="skill-title d-flex flex-column justify-center pa-3 my-5 "
+    class="skill d-flex flex-column justify-center pa-3 my-5 "
     ref="skill"
   >
     <h1 style="color:#272727;font-size:3rem;">
@@ -61,7 +61,7 @@ export default {
 
 <style lang="scss" scoped>
 .skill {
-  min-height: 800px;
+  min-height: 700px;
 }
 
 .slide-fade-enter-active {

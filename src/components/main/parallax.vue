@@ -1,17 +1,48 @@
 <template>
-  <div class="parallax mt-10"></div>
+  <div class="story-slider">
+    <div class="wrapper">
+      <div class="story-item" v-for="(story, i) in stories" :key="i">
+        <img :src="story.img" alt="#" contain />
+        <p>{{ story.name }}</p>
+      </div>
+      <!-- /.story-item -->
+    </div>
+    <!-- /.wrapper -->
+  </div>
 </template>
 
 <script>
+import { mapState } from 'vuex';
 export default {
-  name: 'Parallax',
-  data() {
-    return {
-      imgUrl:
-        'https://images.pexels.com/photos/3796558/pexels-photo-3796558.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-    };
-  },
+  name: 'StorySlider',
+  computed: { ...mapState(['stories', 'myProfile']) },
+  //변경안함
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.story-slider {
+  overflow-x: auto;
+  background-color: #fafafa;
+}
+.wrapper {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 10px 10px 0;
+  white-space: nowrap;
+}
+.story-item {
+  display: inline-block;
+  margin-right: 5%;
+  text-align: center;
+  img {
+    max-width: 300px;
+    height: 300px;
+    object-fit: cover;
+    vertical-align: middle;
+  }
+  p {
+    font-size: 12px;
+  }
+}
+</style>
